@@ -4,43 +4,33 @@ const loader = document.getElementById("loaderDiv");
 const extra = document.getElementById('info');
 const mainpic = document.getElementById('mainpic');
 const blue = window.matchMedia("(max-width: 800px)");
-const tigeypic = document.getElementById('tigeypic');
-const flash = document.getElementById('flash');
 
-//Add Bugs
-function flashAlert(){
-  flash.classList.add('bugvisible');
+//Change Intropic
 
+function changeBoy(){
+  switch (mainpic.innerHTML){
+    case '<img src="img/Boy/boy1.png">':
+    mainpic.innerHTML = '<img src="img/Boy/boy2.png">';
+    break;
+    case '<img src="img/Boy/boy2.png">':
+    mainpic.innerHTML = '<img src="img/Boy/boy3.png">';
+    break;
+    case '<img src="img/Boy/boy3.png">':
+    mainpic.innerHTML = '<img src="img/Boy/boy4.png">';
+    break;
+    case '<img src="img/Boy/boy4.png">':
+    mainpic.innerHTML = '<img src="img/Boy/boy5.png">';
+    break;
+    default: mainpic.innerHTML = '<img src="img/Boy/boy1.png">';
+  }
 }
 
-function bugify(){
-  setTimeout(flashAlert, 4000);
-  const bugbuzz = new Audio('sounds/bugbuzz.mp3');
-  bugbuzz.loop = true;
-  bugbuzz.play();
-  new BugController({'minBugs':10, 'maxBugs':15, 'mouseOver':'die'});
-  new SpiderController({'minBugs':3, 'maxBugs':6, 'mouseOver':'die'});
 
-}
-
-//Kill All Bugs
-function bugsGo(){
-  window.location.reload();
-}
-
-//Make Tigey Roar
-function roarer(){
-  mainpic.innerHTML = '<img src="img/tiger1.png" id="tigeypic" alt="decorative">';
-  tigeypic.classList.remove('rightmove');
-}
-
-function changetiger(){
-    const roaring = new Audio('sounds/roary.mp3')
-    roaring.play();
-    mainpic.innerHTML = '<img src="img/tiger2.png" id="tigeypic" alt="decorative">' 
-    tigeypic.classList.add('rightmove');
-    setTimeout(roarer, 2000);
-}
+// Say "Cool"
+// function coolKid(){
+//   const coolkid = new Audio('sounds/cool.mp3');
+//   coolkid.play();
+// }
 
 // Show and hide about info
 function show(){info.classList.toggle('xxc');};
@@ -74,123 +64,117 @@ const sideBar = document.getElementById("sidebar");
 // Each image and word in a set array has the same data-framework number, in order to check for pairs.
 // The data-name is a string, which can be used in the second case as innerHTML.
 const set1 = [
-  { number: "1", name: "Ant" },
-  { number: "1", name: "<img src = 'img/Ant.svg' alt='Ant' class='image'>" },
-  { number: "2", name: "Bear" },
+  { number: "1", name: "belt" },
+  { number: "1", name: "<img src = 'img/belt.png' alt='belt' class='image'>" },
+  { number: "2", name: "boots" },
   {
     number: "2",
-    name: "<img src = 'img/Bear.svg' alt='Bear' class='image'>",
+    name: "<img src = 'img/boots.png' alt='boots' class='image'>",
   },
-  { number: "3", name: "Bee" },
-  { number: "3", name: "<img src = 'img/Bee.svg' alt='Bee' class='image'>" },
-  { number: "4", name: "Bird" },
+  { number: "3", name: "cap" },
+  { number: "3", name: "<img src = 'img/cap.png' alt='cap' class='image'>" },
+  { number: "4", name: "dress" },
   {
     number: "4",
-    name: "<img src = 'img/Bird.svg' alt='Bird' class='image'>",
+    name: "<img src = 'img/dress.png' alt='dress' class='image'>",
   },
-  { number: "5", name: "Butterfly" },
+  { number: "5", name: "flip-flops" },
   {
     number: "5",
-    name: "<img src = 'img/Butterfly.svg' alt='Butterfly' class='image'>",
+    name: "<img src = 'img/flipflops.png' alt='flip-flops' class='image'>",
   },
-  { number: "6", name: "Cat" },
+  { number: "6", name: "gloves" },
   {
     number: "6",
-    name: "<img src = 'img/Cat.svg' alt='Cat' class='image'>",
+    name: "<img src = 'img/gloves.png' alt='gloves' class='image'>",
   },
-  { number: "7", name: "Caterpillar" },
-  {
-    number: "7",
-    name: "<img src = 'img/Caterpillar.svg' alt='Caterpillar' class='image'>",
-  },
-  { number: "8", name: "Chicken" },
+  { number: "7", name: "hat" },
+  { number: "7", name: "<img src = 'img/hat.png' alt='hat' class='image'>" },
+  { number: "8", name: "hoodie" },
   {
     number: "8",
-    name: "<img src = 'img/Chicken.svg' alt='Chicken' class='image'>",
+    name: "<img src = 'img/hoodie.png' alt='hoodie' class='image'>",
   },
 ];
 const set2 = [
-  { number: "9", name: "Cow" },
+  { number: "9", name: "jacket" },
   {
     number: "9",
-    name: "<img src = 'img/Cow.svg' alt='Cow' class='image'>",
+    name: "<img src = 'img/jacket.png' alt='jacket' class='image'>",
   },
-  { number: "10", name: "Crab" },
+  { number: "10", name: "jeans" },
   {
     number: "10",
-    name: "<img src = 'img/Crab.svg' alt='Crab' class='image'>",
+    name: "<img src = 'img/jeans.png' alt='jeans' class='image'>",
   },
-  { number: "11", name: "Deer" },
+  { number: "11", name: "jumper" },
   {
     number: "11",
-    name: "<img src = 'img/Deer.svg' alt='Deer' class='image'>",
+    name: "<img src = 'img/jumper.png' alt='jumper' class='image'>",
   },
-  { number: "12", name: "Dinosaur" },
+  { number: "12", name: "pyjamas" },
   {
     number: "12",
-    name: "<img src = 'img/Dinosaur.svg' alt='Dinosaur' class='image'>",
+    name: "<img src = 'img/pyjamas.png' alt='pyjamas' class='image'>",
   },
-  { number: "13", name: "Dog" },
+  { number: "13", name: "raincoat" },
   {
     number: "13",
-    name: "<img src = 'img/Dog.svg' alt='Dog' class='image'>",
+    name: "<img src = 'img/raincoat.png' alt='raincoat' class='image'>",
   },
-  { number: "14", name: "Dolphin" },
+  { number: "14", name: "sandals" },
   {
     number: "14",
-    name: "<img src = 'img/Dolphin.svg' alt='Dolphin' class='image'>",
+    name: "<img src = 'img/sandals.png' alt='sandals' class='image'>",
   },
-  { number: "15", name: "Dragonfly" },
+  { number: "15", name: "scarf" },
   {
     number: "15",
-    name: "<img src = 'img/Dragonfly.svg' alt='Dragonfly' class='image'>",
+    name: "<img src = 'img/scarf.png' alt='scarf' class='image'>",
   },
-  { number: "16", name: "Duck" },
+  { number: "16", name: "shirt" },
   {
     number: "16",
-    name: "<img src = 'img/Duck.svg' alt='Duck' class='image'>",
+    name: "<img src = 'img/shirt.png' alt='shirt' class='image'>",
   },
 ];
 const set3 = [
-  { number: "17", name: "Elephant" },
-  {
-    number: "17",
-    name: "<img src = 'img/Elephant.svg' alt='Elephant' class='image'>",
-  },
-  { number: "18", name: "Fish" },
+  { number: "17", name: "shoe" },
+  { number: "17", name: "<img src = 'img/shoe.png' alt='shoe' class='image'>" },
+  { number: "18", name: "skirt" },
   {
     number: "18",
-    name: "<img src = 'img/Fish.svg' alt='Fish' class='image'>",
+    name: "<img src = 'img/skirt.png' alt='skirt' class='image'>",
   },
-  { number: "19", name: "Frog" },
+  { number: "19", name: "socks" },
   {
     number: "19",
-    name: "<img src = 'img/Frog.svg' alt='Frog' class='image'>",
+    name: "<img src = 'img/socks.png' alt='socks' class='image'>",
   },
-  { number: "20", name: "Giraffe" },
+  { number: "20", name: "trainer" },
   {
     number: "20",
-    name: "<img src = 'img/Giraffe.svg' alt='Giraffe' class='image'>",
+    name: "<img src = 'img/trainer.png' alt='trainers' class='image'>",
   },
-  { number: "21", name: "Gorilla" },
+  { number: "21", name: "trousers" },
   {
     number: "21",
-    name: "<img src = 'img/Gorilla.svg' alt='Gorilla' class='image'>",
+    name: "<img src = 'img/trousers.png' alt='trousers' class='image'>",
   },
-  { number: "22", name: "Horse" },
+  { number: "22", name: "t-shirt" },
   {
     number: "22",
-    name: "<img src = 'img/Horse.svg' alt='Horse' class='image'>",
+    name: "<img src = 'img/tshirt.png' alt='tshirt' class='image'>",
   },
-  { number: "23", name: "Kangaroo" },
+  { number: "23", name: "umbrella" },
   {
     number: "23",
-    name: "<img src = 'img/Kangaroo.svg' alt='Kangaroo' class='image'>",
+    name: "<img src = 'img/umbrella.png' alt='umbrella' class='image'>",
   },
-  { number: "24", name: "Leopard" },
+  { number: "24", name: "jacket" },
   {
     number: "24",
-    name: "<img src = 'img/Leopard.svg' alt='Leopard' class='image'>",
+    name: "<img src = 'img/jacket.png' alt='jacket' class='image'>",
   },
 ];
 
@@ -241,7 +225,7 @@ function playGame(array) {
     card.classList.add("card");
     //  Include the data-famework (data.number) of the cards so they can be checked plus the necessary HTML.
 
-    card.innerHTML = `<div class="memory-card" tabindex=0 data-framework="${data.number}"><div class="front-face">${data.name}</div><div class="back-face"><img src = "img/Lion.svg" alt="picture of a basket of food" class="imgBg smaller" id="imgBg"></div></div>`;
+    card.innerHTML = `<div class="memory-card" tabindex=0 data-framework="${data.number}"><div class="front-face">${data.name}</div><div class="back-face"><img src = "img/clothesBG.png" alt="picture of a basket of food" class="imgBg smaller" id="imgBg"></div></div>`;
 
     // Append the card divs to the game container so they appear on the page.
     gameContainer.appendChild(card);
