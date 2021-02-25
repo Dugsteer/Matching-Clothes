@@ -3,7 +3,7 @@
   grid-column: 2/3;
   width: 100%;
 
-  @media only screen and (max-width: bp-small) {
+  @media only screen and (max-width: $bp-small) {
     grid-row: 2/3;
     grid-column: 1/2;
     display: none;
@@ -15,7 +15,7 @@
   grid-column: 2/3;
   width: 100%;
 
-  @media only screen and (max-width: bp-small) {
+  @media only screen and (max-width: $bp-small) {
     grid-row: 4/5;
     grid-column: 1/2;
   }
